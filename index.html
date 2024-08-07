@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Age calculator app</title>
+  <link rel="stylesheet" href="./css/all.css">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Abel&family=Aldrich&family=Alkatra:wght@400..700&family=Barlow+Condensed:wght@100;300;400;700&family=Carattere&family=Cinzel:wght@400;500;700&family=Codystar:wght@300&family=Jost:wght@100;300;400;700&family=Lobster&family=Montserrat:wght@100;300;400;700&family=Open+Sans:wght@300;400;500;700&family=Oswald:wght@300;400;500;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Play:wght@400;700&family=Playball&family=Poppins:wght@100;300;400;500;600;700&family=Roboto+Condensed:wght@100;300;400;600;700&family=Roboto:wght@100;300;400;700&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+  rel="stylesheet">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+  <div class="main-container">
+    <div class="calc-age-body">
+      <div class="top">
+        <div class="input-container">
+          <label class="label">DAY</label>
+          <input class="input" type="number" placeholder="DD" min="1" maxlength="2"  id="day-input"/>
+          <p class="error-msg"></p>
+        </div>
+        <div class="input-container">
+          <label class="label">MONTH</label>
+          <input class="input" type="number" placeholder="MM" min="1" maxlength="2" id="month-input"/>
+          <p class="error-msg"></p>
+        </div>
+        <div class="input-container">
+          <label class="label">YEAR</label>
+          <input class="input" type="number" placeholder="YYYY" min="1" maxlength="4" id="year-input"/>
+          <p class="error-msg"></p>
+        </div>
+      </div>
+      <div class="line">
+        <hr />
+        <button type="button" title="button" id="calc">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+      <div class="bottom">
+        <h2><span class="output" id="year-out" >--</span> Years</h2>
+        <h2><span class="output" id="month-out" >--</span> Months</h2>
+        <h2><span class="output" id="day-out" >--</span> Days</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Rodina Sameh</a>.
+  </div>
+<script src="./js/script.js"></script>
+</body>
+
+</html>
