@@ -53,7 +53,13 @@ function calculation() {
     calcDay = day - day_input;
   } else {
     calcMonth--;
-    calcDay = validDays + day - day_input;
+    const previousMonthDays = new Date(year, month - 1, 0).getDate();
+    calcDay = previousMonthDays + day - day_input;
+  }
+  // Handle the edge case where calcMonth becomes negative
+  if (calcMonth < 0) {
+    calcMonth += 12;
+    calcYear--; // Adjust year
   }
   outputs[0].innerHTML = calcYear;
   outputs[1].innerHTML = calcMonth;
@@ -95,12 +101,23 @@ function checkDateValidation() {
    error_msg[1].innerHTML = "Must be in the past or present month";
    isValid = false; // Return false if month is in the future for the current year
   }
-  if (month_input === todayMonth && day_input > todayDay) {
-    inputs[1].style.cssText = "border-color:hsl(0, 100%, 67%);";
-    labels[1].style.cssText = "color: hsl(0, 100%, 67%);";
-    error_msg[1].innerHTML = "Must be in the past or present month";
-    isValid = false; 
-  }
+ if (year_input === todayYear) {
+   // Check if the month is in the future
+   if (month_input > todayMonth) {
+     inputs[1].style.cssText = "border-color:hsl(0, 100%, 67%);";
+     labels[1].style.cssText = "color: hsl(0, 100%, 67%);";
+     error_msg[1].innerHTML = "Must be in the past or present month";
+     isValid = false;
+   }
+
+   // Check if the day is in the future for the current month
+   if (month_input === todayMonth && day_input > todayDay) {
+     inputs[0].style.cssText = "border-color:hsl(0, 100%, 67%);";
+     labels[0].style.cssText = "color: hsl(0, 100%, 67%);";
+     error_msg[0].innerHTML = "Must be in the past or present day";
+     isValid = false;
+   }
+ }
   return isValid;
 }
 calc_btn.addEventListener("click", calcAge);
